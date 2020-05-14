@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import axios from 'axios'
 import { consume } from 'helmet/client'
 
-const api = consume('http://localhost:3001/api/call', { http: axios })
+const api = consume('/api/call', { http: axios })
 
 function App() {
   const [todos, setTodos] = useState([])

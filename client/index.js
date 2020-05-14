@@ -14,3 +14,5 @@ function consume (baseUrl, { http }) {
     }
   })
 }
+
+module.exports = { consume }
