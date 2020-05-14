@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-const makeId = () => number.toString(36).substr(2, 9)
+const makeId = () => Math.random().toString(36).substr(2, 9)
 
 class Todos {
   constructor () {
@@ -21,7 +21,7 @@ class Todos {
   }
 
   addTodo(title) {
-    this.todos.push({ id: makeId, title })
+    this.todos.push({ id: makeId(), title })
   }
 }
 
