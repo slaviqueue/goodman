@@ -1,9 +1,9 @@
-# helmet
+# varga
 
 When developing in homogeneus environment (using React and Nodejs for example),
 the http communication layer may be unneded barier between front-end and backend.
 
-Helmet intends to be lightweight tiny abstraction over this communication, making
+Varga intends to be lightweight tiny abstraction over this communication, making
 full-stack javascript development almost seamless.
 
 ## How it works
