@@ -1,7 +1,7 @@
 {
   "name": "example",
   "version": "1.0.0",
-  "description": "example of usage helmet",
+  "description": "example of usage goodman",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node ."

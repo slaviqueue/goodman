@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import { consume } from 'helmet/client'
+import { consume } from 'goodman/client'
 
 const http = {
   post: (...args) => axios.post(...args).then(({ data }) => data)

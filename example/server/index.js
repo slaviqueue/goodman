@@ -1,5 +1,5 @@
 const app = require('express')()
-const { expressify } = require('helmet/server')
+const { expressify } = require('goodman/server')
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }))
