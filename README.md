@@ -1,5 +1,3 @@
-# goodman
-
 ![logo](https://user-images.githubusercontent.com/20744231/80919762-8082cd00-8d74-11ea-9de3-e649d9a1da41.png)
 
 When developing in homogeneus environment (using React and Nodejs for example),
