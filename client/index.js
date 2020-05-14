@@ -1,6 +1,9 @@
+function makeCallUrl (baseUrl, method) {
+  return [baseUrl, method].join('/')
+}
+
 function makeCall (baseUrl, http, method, args) {
-  return http.post(baseUrl, {
-    method,
+  return http.post(makeCallUrl(baseUrl, method), {
     args
   })
 }

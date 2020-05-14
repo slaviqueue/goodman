@@ -1,6 +1,7 @@
 function expressify (definition) {
   return async (req, res) => {
-    const { method, args } = req.body
+    const { args } = req.body
+    const { method } = req.params
 
     if (!definition[method]) {
       return res.status(404).send([method, 'not implemented'].join())

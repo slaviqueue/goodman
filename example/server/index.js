@@ -25,6 +25,6 @@ class Todos {
   }
 }
 
-app.post('/todos/call', expressify(new Todos))
+app.post('/todos/call/:method', expressify(new Todos))
 
 app.listen(3001, () => console.log('app is ready'))
