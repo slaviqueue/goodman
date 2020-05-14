@@ -1,16 +1,14 @@
 function makeCall (baseUrl, http, method, args) {
   return http.post(baseUrl, {
-    body: {
-      method,
-      args
-    }
+    method,
+    args
   })
 }
 
-function consume (baseUrl, { http }) {
+function consume (baseUrl, { http, extract }) {
   return new Proxy({}, {
     get (obj, prop) {
-      return (...args) => makeCall(baseUrl, http, prop, args)
+      return (...args) => makeCall(baseUrl, http, prop, args).then(extract)
     }
   })
 }

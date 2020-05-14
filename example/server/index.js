@@ -1,20 +1,30 @@
 const app = require('express')()
 const { expressify } = require('helmet/server')
+const bodyParser = require('body-parser')
 
-const todos = [
-  { id: 1, title: 'sit on a couch' },
-  { id: 2, title: 'sit on casting couch' }
-]
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-const api = {
+const makeId = () => number.toString(36).substr(2, 9)
+
+class Todos {
+  constructor () {
+    this.todos = []
+  }
+
   getTodos() {
-    return todos
-  },
+    return this.todos
+  }
+
   getTodoById(id) {
-    return todos.find((todo) => id === todo.id)
+    return this.todos.find((todo) => id === todo.id)
+  }
+
+  addTodo(title) {
+    this.todos.push({ id: makeId, title })
   }
 }
 
-app.post('/api/call', expressify(api))
+app.post('/todos/call', expressify(new Todos))
 
 app.listen(3001, () => console.log('app is ready'))
