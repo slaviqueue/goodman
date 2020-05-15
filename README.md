@@ -19,15 +19,15 @@ class Todos {
     this.todos = []
   }
 
-  getTodos() {
+  getTodos () {
     return this.todos
   }
 
-  getTodoById(id) {
+  getTodoById (id) {
     return this.todos.find((todo) => id === todo.id)
   }
 
-  addTodo(title) {
+  addTodo (title) {
     this.todos.push({ id: makeId, title })
   }
 }
