@@ -56,3 +56,88 @@ function addNewTodo (newTodo) {
 
 ```
 
+Goodman vs good old http comparison:
+```javascript
+// goodman
+function searchUserTodos (userId, query) {
+  api.searchUserTodos(userId, query).then(setTodos)
+}
+
+// http
+function searchUserTodos (userId, query) {
+  axios.get(`/${userId}/todos?q=${query}`).then(setTodos)
+}
+
+
+
+
+// goodman
+function createTodo (todo) {
+  api.createTodo(todo)
+}
+
+// http
+function createTodo (todo) {
+  axios.post('/todos', todo)
+}
+
+
+
+
+// goodman
+function getMe () {
+  return authenticatedUser.getMe()
+}
+
+// http
+function getMe () {
+  return authenticatedApi.get('/users/me')
+}
+```
+
+As you can see, when using goodman, you're just writing your code without need to think about such low-level transport stuff.
+There's only one way to pass information to backend handlers – via procedure arguments. **Note that arguments must be serializable.**
+
+The same stuff with backend:
+
+```javascript
+// goodman
+class User {
+  getUser (id) {
+    return User.findById(id)
+  }
+
+  editUser (id, patch) {
+    return User.findByIdAndUpdate(id, patch, { new: true })
+  }
+}
+
+app.get('user/call/:method', expressify(new User))
+
+
+
+// plain express
+
+class User {
+  getUser (req, res) {
+    const id = req.params
+    return res.json(User.findById(id))
+  }
+
+  editUser (req, res) {
+    const id = req.params
+    const patch = req.body
+
+    const updatedUser User.findByIdAndUpdate(id, patch, { new: true })
+
+    return res.json(updatedUser)
+  }
+}
+
+const userController = new User()
+
+app.get('users/:id', userController.getUser)
+app.patch('users/:id', userController.editUser)
+```
+
+
