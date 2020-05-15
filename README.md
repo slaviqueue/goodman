@@ -128,7 +128,7 @@ class User {
     const id = req.params
     const patch = req.body
 
-    const updatedUser User.findByIdAndUpdate(id, patch, { new: true })
+    const updatedUser = User.findByIdAndUpdate(id, patch, { new: true })
 
     return res.json(updatedUser)
   }
