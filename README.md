@@ -119,16 +119,18 @@ app.get('user/call/:method', expressify(new User))
 // plain express
 
 class User {
-  getUser (req, res) {
+  async getUser (req, res) {
     const id = req.params
-    return res.json(User.findById(id))
+    const user = await User.findById(id)
+
+    return res.json(user)
   }
 
-  editUser (req, res) {
+  async editUser (req, res) {
     const id = req.params
     const patch = req.body
 
-    const updatedUser = User.findByIdAndUpdate(id, patch, { new: true })
+    const updatedUser = await User.findByIdAndUpdate(id, patch, { new: true })
 
     return res.json(updatedUser)
   }
