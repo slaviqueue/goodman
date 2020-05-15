@@ -1,7 +1,7 @@
 ![logo](https://user-images.githubusercontent.com/20744231/80919762-8082cd00-8d74-11ea-9de3-e649d9a1da41.png)
 
 When developing in homogeneus environment (using React and Nodejs for example),
-the http communication layer may be unneeded barier between front-end and backend.
+the http communication layer may be unneeded barrier between front-end and backend.
 
 Goodman intends to be lightweight tiny abstraction over this communication, making
 full-stack javascript development almost seamless.
