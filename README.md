@@ -44,10 +44,9 @@ const api = consume('/todos/call', { http })
 
 ...
 
-function addNewTodo () {
-  api.addTodo(newTodo)
+function addNewTodo (newTodo) {
+  api.addTodo(newTodo).then(api.fetchTodos)
   setNewTodo('')
-  fetchTodos()
 }
 
 ...
