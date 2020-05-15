@@ -56,7 +56,7 @@ function addNewTodo (newTodo) {
 
 ```
 
-Goodman vs good old http comparison:
+## Goodman vs good old http
 ```javascript
 // goodman
 function searchUserTodos (userId, query) {
