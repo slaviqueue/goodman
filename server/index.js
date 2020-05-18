@@ -7,8 +7,10 @@ function expressify (definition) {
       return res.status(404).send([method, 'not implemented'].join())
     }
 
-    const result = await definition[method](...args)
-    res.send(result)
+    return Promise.resolve()
+      .then(() => definition[method](...args))
+      .then(res.send)
+      .catch((error) => res.status(500).json(error))
   }
 }
 
