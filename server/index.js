@@ -9,8 +9,8 @@ function expressify (definition) {
 
     return Promise.resolve()
       .then(() => definition[method](...args))
-      .then(res.send)
-      .catch((error) => res.status(500).json(error))
+      .then((result) => res.send(result))
+      .catch((error) => res.status(500).send(error))
   }
 }
 
